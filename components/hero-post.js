@@ -1,42 +1,41 @@
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
-import Avatar from '../components/avatar'
 import Date from '../components/date'
-import CoverImage from '../components/cover-image'
+import EpisodeSeason from '../components/episode-season'
+import IconLinks from '../components/icon-links'
 
 export default function HeroPost({
   title,
-  coverImage,
   date,
   excerpt,
-  author,
+  seasonnumber,
+  episodenumber,
+  applelink,
+  spotifylink,
   slug,
 }) {
   return (
     <section>
-      <div className="mb-8 md:mb-16">
-        <CoverImage
-          title={RichText.asText(title)}
-          slug={slug}
-          url={coverImage.url}
-        />
-      </div>
       <div className="md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28">
         <div>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-            <Link href={`/posts/${slug}`}>
-              <a className="hover:underline">
-                <RichText render={title} />
-              </a>
-            </Link>
+          <h2 className="mb-8 text-4xl md:text-5xl font-bold tracking-tighter leading-tight">
+            The Latest Episode:
+          </h2>
+        </div>
+        <div className="flex flex-col">
+          <Link href={`/posts/${slug}`}>
+            <a className="mb-4 text-2xl lg:text-4xl hover:underline">
+              <RichText render={title} />
+            </a>
+          </Link>
+          <h3 className="mb-0 text-l lg:text-2xl leading-tight order-first">
+            <EpisodeSeason episode={episodenumber} season={seasonnumber} />
           </h3>
-          <div className="mb-4 md:mb-0 text-lg">
+          <div className="mb-8 text-lg">
             <Date dateString={date} />
           </div>
-        </div>
-        <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          {author && <Avatar name={author.name} picture={author.picture} />}
+          <IconLinks appleLink={applelink} spotifyLink={spotifylink} />
         </div>
       </div>
     </section>

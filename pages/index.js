@@ -14,18 +14,21 @@ export default function Index({ preview, allPosts }) {
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>The Puncher's Chance Podcast</title>
         </Head>
         <Container>
           <Intro />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
-              coverImage={heroPost.coverimage}
               date={heroPost.date}
               author={heroPost.author}
               slug={heroPost._meta.uid}
               excerpt={heroPost.excerpt}
+              seasonnumber={heroPost.seasonnumber}
+              episodenumber={heroPost.episodenumber}
+              applelink={heroPost.applelink}
+              spotifylink={heroPost.spotifylink}
             />
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}

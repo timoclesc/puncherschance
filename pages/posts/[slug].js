@@ -8,6 +8,8 @@ import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
+import IconLinks from '../../components/icon-links'
+import ContentContainer from '../../components/content-container'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import { CMS_NAME } from '../../lib/constants'
@@ -31,15 +33,15 @@ export default function Post({ post, morePosts, preview }) {
                 <title>
                   {post.title[0].text} | Next.js Blog Example with {CMS_NAME}
                 </title>
-                <meta property="og:image" content={post.coverimage.url} />
               </Head>
               <PostHeader
                 title={post.title}
-                coverImage={post.coverimage}
                 date={post.date}
-                author={post.author}
               />
-              <PostBody content={post.content} />
+              <ContentContainer>
+                <PostBody content={post.content} />
+                <IconLinks appleLink={post.applelink} spotifyLink={post.spotifylink} />
+              </ContentContainer>
             </article>
             <SectionSeparator />
             {morePosts && morePosts.length > 0 && (
