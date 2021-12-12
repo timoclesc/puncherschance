@@ -15,11 +15,11 @@ export default function HeroPost({
   slug,
 }) {
   return (
-    <section>
-      <div className="md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28">
+    <section className="mt-8 md:mt-20">
+      <div className="two-col-container">
         <div>
           <h2 className="mb-8 text-4xl md:text-5xl font-bold tracking-tighter leading-tight">
-            The Latest Episode:
+            Latest Episode
           </h2>
         </div>
         <div className="flex flex-col">

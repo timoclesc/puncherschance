@@ -31,7 +31,7 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title[0].text} | Next.js Blog Example with {CMS_NAME}
+                  {post.title[0].text} | The Puncher's Chance Podcast
                 </title>
               </Head>
               <PostHeader

@@ -1,14 +1,24 @@
-import { CMS_NAME, CMS_URL } from '../lib/constants'
 
-export default function Intro() {
+
+export default function Intro({isHome}) {
+  const title = 'The Puncher\'s Chance\u00a0Podcast'
+  const byline = 'Follow all things in Aussie boxing hosted by Brendan Bradford &amp; Adam Copland⁣'
+  const titleStyles = 'text-5xl md:text-7xl font-bold tracking-tighter leading-tight'
+  const bylineStyles = 'md:text-left text-lg mt-5'
   return (
-    <section className="mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-7xl font-bold tracking-tighter leading-tight md:pr-8">
-       The Puncher's Chance&nbsp;Podcast
-      </h1>
-      <h4 className=" md:text-left text-lg mt-5 md:pl-8">
-       Follow all things in Aussie boxing hosted by Brendan Bradford & Adam Copland⁣
-      </h4>
+    <section className="mt-4 pb-8 md:mt-8 pl-4 pr-4 md:pl-8 md:pr-8">
+      {isHome ? (
+        <h1 className={titleStyles}>
+          {title}
+        </h1>
+      ) : (
+        <p className={titleStyles}>
+          {title}
+        </p>
+      )}
+      <p className={bylineStyles}>
+        {byline}
+      </p>
     </section>
   )
 }

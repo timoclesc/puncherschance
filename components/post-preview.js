@@ -12,7 +12,7 @@ export default function PostPreview({
   seasonnumber
 }) {
   return (
-    <div class="flex flex-col">
+    <div className="flex flex-col">
       <h3 className="text-3xl mb-3 leading-snug">
         <Link href={`/posts/${slug}`}>
           <a className="hover:underline">

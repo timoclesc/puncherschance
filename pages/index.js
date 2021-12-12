@@ -1,23 +1,18 @@
 import Container from '../components/container'
 import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
+import SectionSeparator from 'components/section-separator'
+import Avatar from 'components/avatar'
 
-export default function Index({ preview, allPosts }) {
+export default function Index({ preview, allPosts, allAuthors }) {
   const heroPost = allPosts[0].node
   const morePosts = allPosts.slice(1)
   return (
     <>
       <Layout preview={preview}>
-        <Head>
-          <title>The Puncher's Chance Podcast</title>
-        </Head>
         <Container>
-          <Intro />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -31,6 +26,11 @@ export default function Index({ preview, allPosts }) {
               spotifylink={heroPost.spotifylink}
             />
           )}
+          <SectionSeparator />
+          {allAuthors.map(
+            ({node: author}) => <Avatar name={author.name} picture={author.picture} />
+          )}
+          <SectionSeparator />
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
@@ -39,8 +39,10 @@ export default function Index({ preview, allPosts }) {
 }
 
 export async function getStaticProps({ preview = false, previewData }) {
-  const allPosts = await getAllPostsForHome(previewData)
+  const data = await getAllPostsForHome(previewData)
+  const allPosts = data.allPosts.edges
+  const allAuthors = data.allAuthors.edges
   return {
-    props: { preview, allPosts },
+    props: { preview, allPosts, allAuthors }
   }
 }
