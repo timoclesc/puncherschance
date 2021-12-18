@@ -4,7 +4,7 @@ import HeroPost from '../components/hero-post'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import SectionSeparator from 'components/section-separator'
-import Avatar from 'components/avatar'
+import Presenters from 'components/presenters'
 
 export default function Index({ preview, allPosts, allAuthors }) {
   const heroPost = allPosts[0].node
@@ -27,9 +27,7 @@ export default function Index({ preview, allPosts, allAuthors }) {
             />
           )}
           <SectionSeparator />
-          {allAuthors.map(
-            ({node: author}) => <Avatar name={author.name} picture={author.picture} />
-          )}
+          <Presenters allAuthors={allAuthors} />
           <SectionSeparator />
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>

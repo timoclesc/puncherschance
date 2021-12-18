@@ -8,4 +8,8 @@
     .two-col-container { 
         @apply grid grid-cols-1 mb-20 gap-8 md:grid-cols-2 md:mb-28;
     }
+
+    .animated-link { 
+        transition: background-size 0.4s ease, border-color 0.2s ease 0.05s;
+    }
 }

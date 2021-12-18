@@ -25,7 +25,7 @@ export default function Post({ post, morePosts, preview }) {
       <Container>
         <Header />
         {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+          <PostTitle tag="h1">Loading…</PostTitle>
         ) : (
           <>
             <article>
@@ -37,6 +37,8 @@ export default function Post({ post, morePosts, preview }) {
               <PostHeader
                 title={post.title}
                 date={post.date}
+                episodenumber={post.episodenumber}
+                seasonnumber={post.seasonnumber}
               />
               <ContentContainer>
                 <PostBody content={post.content} />
