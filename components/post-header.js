@@ -8,7 +8,7 @@ export default function PostHeader({ title, coverImage, date, author, episodenum
   return (
     <>
       <ContentContainer>
-        <div class="flex flex-col">
+        <div className="flex flex-col">
           <PostTitle tag="h1" className="mb-1">{title[0].text}</PostTitle>
           <p className="mb-0 text-l lg:text-2xl leading-tight order-first">
               <EpisodeSeason episode={episodenumber} season={seasonnumber} />
