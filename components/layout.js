@@ -12,6 +12,24 @@ export default function Layout({ isHome, children }) {
       <Meta />
       <Head>
           <title>The Puncher's Chance Podcast</title>
+          <link
+            rel="preload"
+            href="/fonts/FeVQS0BTqb0h60ACH5FQ2J5hm25mww.woff2"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/FeVQS0BTqb0h60ACH5BQ2J5hm25mww.woff2"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/FeVQS0BTqb0h60ACH55Q2J5hm24.woff2"
+            as="font"
+            crossOrigin=""
+          />
       </Head>
       <div className="min-h-screen">
         <header className={styles.header}>
