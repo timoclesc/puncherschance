@@ -8,7 +8,7 @@ export default function Presenters({ allAuthors }) {
       </h2>
       <div >
         {allAuthors.map(
-              ({node: author}) => <Avatar author={author} />
+              ({node: author}) => <Avatar author={author} key={author._meta}/>
             )}
       </div>
     </section>
