@@ -8,7 +8,7 @@ import Presenters from 'components/presenters'
 
 export default function Index({ preview, allPosts, allAuthors }) {
   const heroPost = allPosts[0].node
-  const morePosts = allPosts.slice(1)
+  const morePosts = allPosts.slice(1);
   return (
     <>
       <Layout preview={preview}>

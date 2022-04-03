@@ -21,7 +21,7 @@ export default function Post({ post, morePosts, preview }) {
   }
 
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} title={post.title[0].text} slug={post?._meta?.uid} desc={post.excerpt}>
       <Container>
         <Header />
         {router.isFallback ? (
